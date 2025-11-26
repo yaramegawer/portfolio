@@ -103,15 +103,19 @@
     opacity: 0.3;
     pointer-events: auto;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.05s ease-out;
     box-shadow: 0 0 15px rgba(86, 139, 229, 0.4);
 
     &:hover,
     &.hovering {
       opacity: 1;
-      transform: scale(2.5);
+      transform: scale(2.2);
+      transition: transform 120ms ease, box-shadow 120ms ease,
+        opacity 120ms ease;
       box-shadow: 0 0 35px rgba(54, 209, 220, 1),
         0 0 60px rgba(86, 139, 229, 0.7);
+      z-index: 3;
+      animation: none !important;
     }
 
     &.dot-1 {

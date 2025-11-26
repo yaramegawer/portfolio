@@ -329,7 +329,7 @@ section .row span {
 }
 #about {
   background-color: #36d1dc;
-  background-image: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+  background-image: linear-gradient(135deg, #ade1e5 0%, #5f7fc4 100%);
   color: #fff;
   height: 100%;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
@@ -372,6 +372,63 @@ section .row span {
     padding-bottom: 4rem;
   }
 }
+#about .about-wrapper__image .pendulum {
+  position: relative;
+  display: flex;
+  width: 320px;
+  height: 280px;
+  background-color: #f8c6cf;
+  border-radius: 5%;
+  align-items: center;
+  border-top: 15px solid #eee7d5;
+  justify-content: center;
+}
+#about .about-wrapper__image .pendulum_box {
+  display: flex;
+  padding: 120px 0 0 10px;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+}
+#about .about-wrapper__image .ball {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #455681;
+  position: relative;
+  transform-origin: 50% -300%;
+}
+#about .about-wrapper__image .ball::before {
+  content: "";
+  width: 2px;
+  height: 120px;
+  background-color: #fffeff;
+  left: 18px;
+  top: -120px;
+  position: absolute;
+}
+#about .about-wrapper__image .ball.first {
+  animation: firstball 0.9s alternate ease-in infinite;
+}
+@keyframes firstball {
+  0% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+#about .about-wrapper__image .ball.last {
+  animation: lastball 0.9s alternate ease-out infinite;
+}
+@keyframes lastball {
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-35deg);
+  }
+}
 #about .about-wrapper__info {
   display: flex;
   height: 100%;
@@ -386,7 +443,7 @@ section .row span {
   }
 }
 #contact {
-  background-image: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+  background-image: linear-gradient(135deg, #ade1e5 0%, #5b86e5 100%);
   -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   padding: 15rem 0 10rem 0;
@@ -527,14 +584,17 @@ section .row span {
   opacity: 0.3;
   pointer-events: auto;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.05s ease-out;
   box-shadow: 0 0 15px rgba(86, 139, 229, 0.4);
 }
 #hero .dot:hover,
 #hero .dot.hovering {
   opacity: 1;
-  transform: scale(2.5);
+  transform: scale(2.2);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
   box-shadow: 0 0 35px rgba(54, 209, 220, 1), 0 0 60px rgba(86, 139, 229, 0.7);
+  z-index: 3;
+  animation: none !important;
 }
 #hero .dot-1 {
   top: 10%;
